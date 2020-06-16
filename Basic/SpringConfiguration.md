@@ -1,17 +1,25 @@
 ### XML configuration file
 - Khi bắt đầu thì spring dùng xml để config project và spring bean.
 - Khai báo bean trong trong application context xml. 
+```java
 <bean name="studentRepository" class="com.repository.studentRepositoryImpl"/>
+```
 - Inject bean using setter
+```java
 <bean name="studentService" class="com.service.studentServiceImpl">
     <property name="studentRepository" ref="studentRepository"></property>
 </bean>
+```
 - Inject bean using contructor
+```java
 <bean name="studentService" class="com.service.studentServiceImpl">
     <constructor-arg name="studentRepository" ref="studentRepository"></constructor-arg>
 </bean>
+```
 - Inject bean using autowire (by constructor, byType, byName)
+```java
 <bean name="studentService" class="com.service.studentServiceImpl" autowire="default"/>
+```
 + byContructor: call contructor with parameter.
 + byType: call default contructor with no parameter for create bean. Identify bean base on class.
 + byName: call default contructor with no parameter for create bean. Identify base on name.
